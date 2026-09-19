@@ -4,33 +4,57 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ovrli</title>
-<meta name="description" content="Ovrli — replica le pose fotografiche. Sovrapponi una foto di riferimento al mirino e allinea l'inquadratura prima di scattare.">
+<meta name="description" content="Ovrli — la camera creativa per iPhone. Foto e video, modalità di scatto, ritocco e bellezza, montaggio: tutto sul tuo dispositivo.">
 <style>
-  :root{--bg:#0b0c0f;--fg:#f4f5f7;--muted:#a6acba;--accent:#ff8a5b;--line:#252833;--pill:#1c1f27}
+  :root{--bg:#0b0c0f;--fg:#f4f5f7;--muted:#a6acba;--accent:#ff8a5b;--line:#252833;--pill:#1c1f27;--card:#14161c}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);
     font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
     min-height:100vh;display:flex;flex-direction:column;padding:0 16px}
-  .wrap{max-width:640px;margin:auto;padding:64px 0;text-align:center}
+  .wrap{max-width:760px;margin:auto;padding:64px 0 40px;width:100%}
+  .hero{text-align:center}
   .brand{font-weight:800;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-  h1{font-size:44px;line-height:1.1;letter-spacing:-.03em;margin:.3em 0 .2em}
-  p.tag{color:var(--muted);font-size:18px;max-width:34ch;margin:0 auto 32px}
-  .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  h1{font-size:46px;line-height:1.08;letter-spacing:-.03em;margin:.3em 0 .25em}
+  p.tag{color:var(--muted);font-size:19px;max-width:44ch;margin:0 auto 30px}
+  .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   a.btn{text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px;
     border:1px solid var(--line);background:var(--pill);color:var(--fg)}
   a.btn.primary{background:var(--accent);border-color:var(--accent);color:#0b0c0f}
-  footer{color:var(--muted);font-size:13px;text-align:center;padding:24px 0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:48px 0 8px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px}
+  .feat h3{margin:.1em 0 .3em;font-size:16px;letter-spacing:-.01em}
+  .feat p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+  .ic{font-size:20px}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:28px 0}
   a{color:var(--accent)}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="brand">Ovrli</div>
-    <h1>Replica ogni posa.</h1>
-    <p class="tag">Sovrapponi una foto di riferimento al mirino, allinea l'inquadratura e scatta. Tutto sul tuo iPhone.</p>
-    <div class="links">
-      <a class="btn primary" href="/privacy">Privacy Policy</a>
-      <a class="btn" href="mailto:hello@ovrli.me">Contatti</a>
+    <div class="hero">
+      <div class="brand">Ovrli</div>
+      <h1>Scatta, ritocca, crea.</h1>
+      <p class="tag">La camera creativa per iPhone: foto e video, modalità di scatto, ritocco e montaggio — tutto sul tuo dispositivo.</p>
+      <div class="links">
+        <a class="btn primary" href="/privacy">Privacy Policy</a>
+        <a class="btn" href="mailto:hello@ovrli.me">Contatti</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="feat"><div class="ic">📸</div><h3>Foto e video</h3>
+        <p>Modalità creative pensate per creare: Serie multi-obiettivo, raffica, doppio scatto fronte-retro, storie e reazioni.</p></div>
+      <div class="feat"><div class="ic">✨</div><h3>Ritocco e bellezza</h3>
+        <p>Leviga la pelle, rimodella i tratti, schiarisci e rifinisci i dettagli — con controllo naturale, sul dispositivo.</p></div>
+      <div class="feat"><div class="ic">🎬</div><h3>Montaggio</h3>
+        <p>Taglia, aggiungi audio, voce e voice-over con effetti, cambia lo sfondo: dall'idea al risultato senza uscire dall'app.</p></div>
+      <div class="feat"><div class="ic">🎭</div><h3>Pose di riferimento</h3>
+        <p>Sovrapponi una foto guida al mirino e allinea l'inquadratura. È da qui che è nato Ovrli — ed è solo l'inizio.</p></div>
+      <div class="feat"><div class="ic">🤝</div><h3>Scatto Complice</h3>
+        <p>Colleghi due iPhone vicini: il mirino passa in diretta all'altro telefono per posarti con chi scatta per te.</p></div>
+      <div class="feat"><div class="ic">🔒</div><h3>Privacy prima di tutto</h3>
+        <p>I contenuti restano sul tuo iPhone: nessun caricamento sui nostri server, nessun tracciamento pubblicitario.</p></div>
     </div>
   </div>
   <footer>© 2026 Ovrli · <a href="mailto:hello@ovrli.me">hello@ovrli.me</a></footer>
