@@ -22,10 +22,11 @@
   a.btn.primary{background:var(--accent);border-color:var(--accent);color:#0b0c0f}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:48px 0 8px}
   @media(max-width:560px){.grid{grid-template-columns:1fr}}
-  .feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px}
-  .feat h3{margin:.1em 0 .3em;font-size:16px;letter-spacing:-.01em}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .ic{color:var(--accent);margin-bottom:10px}
+  .ic svg{width:26px;height:26px;display:block}
+  .feat h3{margin:0 0 .3em;font-size:16px;letter-spacing:-.01em}
   .feat p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-  .ic{font-size:20px}
   footer{color:var(--muted);font-size:13px;text-align:center;padding:28px 0}
   a{color:var(--accent)}
 </style>
@@ -43,18 +44,36 @@
     </div>
 
     <div class="grid">
-      <div class="feat"><div class="ic">📸</div><h3>Foto e video</h3>
-        <p>Modalità creative pensate per creare: Serie multi-obiettivo, raffica, doppio scatto fronte-retro, storie e reazioni.</p></div>
-      <div class="feat"><div class="ic">✨</div><h3>Ritocco e bellezza</h3>
-        <p>Leviga la pelle, rimodella i tratti, schiarisci e rifinisci i dettagli — con controllo naturale, sul dispositivo.</p></div>
-      <div class="feat"><div class="ic">🎬</div><h3>Montaggio</h3>
-        <p>Taglia, aggiungi audio, voce e voice-over con effetti, cambia lo sfondo: dall'idea al risultato senza uscire dall'app.</p></div>
-      <div class="feat"><div class="ic">🎭</div><h3>Pose di riferimento</h3>
-        <p>Sovrapponi una foto guida al mirino e allinea l'inquadratura. È da qui che è nato Ovrli — ed è solo l'inizio.</p></div>
-      <div class="feat"><div class="ic">🤝</div><h3>Scatto Complice</h3>
-        <p>Colleghi due iPhone vicini: il mirino passa in diretta all'altro telefono per posarti con chi scatta per te.</p></div>
-      <div class="feat"><div class="ic">🔒</div><h3>Privacy prima di tutto</h3>
-        <p>I contenuti restano sul tuo iPhone: nessun caricamento sui nostri server, nessun tracciamento pubblicitario.</p></div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h2.5l1.2-1.8a1 1 0 0 1 .83-.45h6.94a1 1 0 0 1 .83.45L17.5 8H20a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.3"/></svg></div>
+        <h3>Foto e video</h3>
+        <p>Modalità pensate per creare: Serie multi-obiettivo, raffica, doppio scatto fronte-retro, storie e reazioni.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 L14.6 6.9 L18.5 8.5 L14.6 10.1 L13 14 L11.4 10.1 L7.5 8.5 L11.4 6.9 Z"/><path d="M6 14 L6.9 16.1 L9 17 L6.9 17.9 L6 20 L5.1 17.9 L3 17 L5.1 16.1 Z"/></svg></div>
+        <h3>Ritocco e bellezza</h3>
+        <p>Leviga la pelle, rimodella i tratti, schiarisci e rifinisci i dettagli — con controllo naturale, sul dispositivo.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.6 L20 18"/><path d="M8.2 16.4 L20 6"/></svg></div>
+        <h3>Montaggio</h3>
+        <p>Taglia, aggiungi audio, voce e voice-over con effetti, cambia lo sfondo: dall'idea al risultato senza uscire dall'app.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="12" height="12" rx="2.5"/><rect x="8.5" y="8.5" width="12" height="12" rx="2.5" fill="#14161c"/></svg></div>
+        <h3>Pose di riferimento</h3>
+        <p>Sovrapponi una foto guida al mirino e allinea l'inquadratura. È da qui che è nato Ovrli — ed è solo l'inizio.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.2 13.7A4.8 4.8 0 0 1 20.8 18.3"/></svg></div>
+        <h3>Scatto Complice</h3>
+        <p>Colleghi due iPhone vicini: il mirino passa in diretta all'altro telefono per posarti con chi scatta per te.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3.1 7.7-7 9-3.9-1.3-7-4.4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Privacy prima di tutto</h3>
+        <p>I contenuti restano sul tuo iPhone: nessun caricamento sui nostri server, nessun tracciamento pubblicitario.</p>
+      </div>
     </div>
   </div>
   <footer>© 2026 Ovrli · <a href="mailto:hello@ovrli.me">hello@ovrli.me</a></footer>
