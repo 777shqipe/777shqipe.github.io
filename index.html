@@ -5,41 +5,99 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ovrli</title>
 <meta name="description" content="Ovrli — la camera creativa per iPhone. Foto e video, modalità di scatto, ritocco e bellezza, montaggio: tutto sul tuo dispositivo.">
+<meta name="theme-color" content="#0a0b0f">
 <style>
-  :root{--bg:#0b0c0f;--fg:#f4f5f7;--muted:#a6acba;--accent:#ff8a5b;--line:#252833;--pill:#1c1f27;--card:#14161c}
+  :root{
+    --bg:#0a0b0f; --fg:#f4f5f7; --muted:#aab0be; --card:#14161c;
+    --line:rgba(255,255,255,.09);
+    --c-blue:#61bdff; --c-blue2:#0a85ff; --c-violet:#6b4dff; --c-pink:#ff6fb0; --c-gold:#ffc24b;
+    --grad:linear-gradient(135deg,var(--c-blue),var(--c-violet));
+    --grad-iri:linear-gradient(115deg,var(--c-blue) 0%,var(--c-violet) 52%,var(--c-pink) 100%);
+  }
   *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--fg);
     font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    min-height:100vh;display:flex;flex-direction:column;padding:0 16px}
-  .wrap{max-width:760px;margin:auto;padding:64px 0 40px;width:100%}
+    min-height:100vh;display:flex;flex-direction:column;padding:0 16px;position:relative;overflow-x:hidden}
+
+  /* Aurora viva dietro tutto: la stessa luce iridescente dell'app. */
+  .aurora{position:fixed;inset:-20vh -10vw;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(38vw 38vw at 14% 8%, rgba(97,189,255,.50), transparent 62%),
+      radial-gradient(44vw 44vw at 88% 16%, rgba(107,77,255,.46), transparent 62%),
+      radial-gradient(40vw 40vw at 82% 92%, rgba(255,111,176,.34), transparent 62%),
+      radial-gradient(34vw 34vw at 8% 94%, rgba(255,194,75,.24), transparent 62%);
+    filter:blur(26px);opacity:.85;animation:aurora 26s ease-in-out infinite alternate}
+  .aurora::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 30%,transparent 40%,var(--bg) 100%)}
+  @keyframes aurora{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.18) translate3d(2%,-2%,0)}}
+  @media(prefers-reduced-motion:reduce){.aurora{animation:none}}
+
+  .wrap{max-width:780px;margin:auto;padding:72px 0 40px;width:100%}
   .hero{text-align:center}
-  .brand{font-weight:800;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-  h1{font-size:46px;line-height:1.08;letter-spacing:-.03em;margin:.3em 0 .25em}
-  p.tag{color:var(--muted);font-size:19px;max-width:44ch;margin:0 auto 30px}
-  .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  a.btn{text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px;
-    border:1px solid var(--line);background:var(--pill);color:var(--fg)}
-  a.btn.primary{background:var(--accent);border-color:var(--accent);color:#0b0c0f}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:48px 0 8px}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}}
-  .feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-  .ic{color:var(--accent);margin-bottom:10px}
-  .ic svg{width:26px;height:26px;display:block}
-  .feat h3{margin:0 0 .3em;font-size:16px;letter-spacing:-.01em}
-  .feat p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-  footer{color:var(--muted);font-size:13px;text-align:center;padding:28px 0}
-  a{color:var(--accent)}
+  .brand{font-weight:800;font-size:15px;letter-spacing:.22em;text-transform:uppercase;
+    background:var(--grad-iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1{font-size:52px;line-height:1.05;letter-spacing:-.035em;margin:.28em 0 .3em;font-weight:800}
+  h1 .g{background:var(--grad-iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p.tag{color:var(--muted);font-size:19px;max-width:46ch;margin:0 auto 34px}
+
+  .links{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
+  a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;
+    padding:13px 24px;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease}
+  a.btn.primary{background:var(--grad);color:#08111f;
+    box-shadow:0 10px 30px rgba(90,120,255,.38),inset 0 1px 0 rgba(255,255,255,.35)}
+  a.btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(90,120,255,.5),inset 0 1px 0 rgba(255,255,255,.35)}
+  a.btn.primary svg{width:16px;height:16px}
+  a.ghost{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:15px;
+    padding:13px 12px;color:var(--fg);background:none;border:none}
+  a.ghost:hover{color:var(--c-blue)}
+  a.ghost svg{width:15px;height:15px;transition:transform .18s ease}
+  a.ghost:hover svg{transform:translateX(3px)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:54px 0 8px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}h1{font-size:42px}}
+  .feat{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+    border:1px solid var(--line);border-radius:18px;padding:20px;overflow:hidden;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+  .feat:hover{transform:translateY(-3px);border-color:rgba(97,189,255,.45);
+    box-shadow:0 16px 40px rgba(10,12,24,.55)}
+  .ic{margin-bottom:12px}
+  .ic svg{width:27px;height:27px;display:block;stroke:url(#ir)}
+  .feat h3{margin:0 0 .3em;font-size:16.5px;letter-spacing:-.01em}
+  .feat p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:30px 0}
+  footer a{color:var(--c-blue);text-decoration:none}
+  footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- Gradiente iridescente condiviso dalle icone -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <linearGradient id="ir" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#61bdff"/>
+        <stop offset="0.55" stop-color="#6b4dff"/>
+        <stop offset="1" stop-color="#ff6fb0"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
   <div class="wrap">
     <div class="hero">
       <div class="brand">Ovrli</div>
-      <h1>Scatta, ritocca, crea.</h1>
+      <h1>Scatta, ritocca, <span class="g">crea.</span></h1>
       <p class="tag">La camera creativa per iPhone: foto e video, modalità di scatto, ritocco e montaggio — tutto sul tuo dispositivo.</p>
       <div class="links">
-        <a class="btn primary" href="/privacy">Privacy Policy</a>
-        <a class="btn" href="mailto:hello@ovrli.me">Contatti</a>
+        <a class="btn primary" href="/privacy">
+          Privacy Policy
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="ghost" href="mailto:hello@ovrli.me">
+          Contattaci
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
       </div>
     </div>
 
