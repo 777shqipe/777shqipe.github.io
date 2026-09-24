@@ -33,8 +33,9 @@
   @keyframes aurora{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.18) translate3d(2%,-2%,0)}}
   @media(prefers-reduced-motion:reduce){.aurora{animation:none}.slide{transition:none}}
 
-  .wrap{max-width:1040px;margin:0 auto;width:100%;flex:1;min-height:0;min-width:0;display:flex;flex-direction:column}
-  .hero{text-align:center;flex:0 0 auto;max-width:100%;min-width:0}
+  .wrap{max-width:1180px;margin:0 auto;width:100%;flex:1;min-height:0;min-width:0;overflow:hidden;
+    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.9fr);align-items:stretch;gap:8px 36px}
+  .hero{text-align:left;align-self:center;max-width:100%;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:2vh 0 4vh}
   .brandline{display:inline-flex;align-items:center;gap:10px}
   .cameos{position:relative;width:42px;height:42px;flex:0 0 auto}
   .cameos img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;
@@ -47,12 +48,12 @@
   }
   .brand{font-weight:800;font-size:15px;letter-spacing:.22em;text-transform:uppercase;
     background:var(--grad-iri);-webkit-background-clip:text;background-clip:text;color:transparent}
-  h1{font-size:clamp(26px, 6.2vw, 46px);line-height:1.05;letter-spacing:-.035em;margin:.18em auto .16em;font-weight:800;max-width:100%}
+  h1{font-size:clamp(32px, 4.6vw, 58px);line-height:1.02;letter-spacing:-.04em;margin:.2em 0 .18em;font-weight:800;max-width:12ch;text-align:left}
   h1 .g{background:var(--grad-iri);-webkit-background-clip:text;background-clip:text;color:transparent}
-  p.wink{color:var(--muted);font-size:clamp(14px, 1.9vh, 17px);max-width:min(36ch, 100%);margin:0 auto 12px;padding:0 8px}
+  p.wink{color:var(--muted);font-size:clamp(15px, 1.8vh, 18px);max-width:34ch;margin:0 0 18px;padding:0;text-align:left}
   p.wink b{color:var(--fg);font-weight:700}
 
-  .links{display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap;max-width:100%}
+  .links{display:flex;gap:6px 10px;justify-content:flex-start;align-items:center;flex-wrap:wrap;max-width:100%}
   a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:14px;
     padding:9px 16px;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease}
   a.btn.primary{background:var(--grad);color:#08111f;
@@ -65,23 +66,16 @@
   a.ghost svg{width:15px;height:15px;transition:transform .18s ease}
   a.ghost:hover svg{transform:translateX(3px)}
 
-  .stage{flex:1;min-height:0;min-width:0;width:100%;margin-top:8px;container-type:size;
-    display:grid;grid-template-columns:44px minmax(0,1fr) 44px;grid-template-rows:minmax(0,1fr) auto;
-    align-items:center;justify-items:center;gap:6px 8px}
-  .stage .phone{grid-column:2;grid-row:1;justify-self:center;min-width:0;
-    width:188px;aspect-ratio:1470/3000;height:auto}
-  @media(min-width:700px){.stage .phone{width:230px}}
-  @media(min-width:700px) and (min-height:820px){.stage .phone{width:270px}}
-  .stage .arrow{grid-row:1}
-  .stage .arrow.prev{grid-column:1}
-  .stage .arrow.next{grid-column:3}
-  .stage .dots{grid-column:1 / -1;grid-row:2}
-  .pager{display:contents}
-  @media(max-width:640px){
-    .stage{display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .stage .phone{width:min(156px, 52vw)}
-    .pager{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px}
-    .links{flex-direction:column;gap:2px}
+  .stage{min-height:0;min-width:0;height:100%;overflow:hidden;display:flex;align-items:flex-start;justify-content:center}
+  .stage .phone{height:133.4%;width:auto;max-width:100%;min-height:0;aspect-ratio:1470/3000}
+  .pager{display:flex;align-items:center;gap:14px;margin-top:22px}
+  @media(max-width:800px){
+    .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:6px}
+    .hero{align-self:start;padding:0}
+    h1{font-size:30px;max-width:none}
+    .stage .phone{height:133.4%;max-width:min(240px, 70vw)}
+    .links{flex-direction:column;align-items:flex-start;gap:2px}
+    .pager{margin-top:12px}
   }
 
   .phone{position:relative;filter:drop-shadow(0 18px 28px rgba(0,0,0,.5))}
@@ -90,8 +84,8 @@
     background:radial-gradient(80% 50% at 50% 38%, rgba(107,77,255,.45), transparent 62%),
       linear-gradient(180deg,#12151e,#07080c)}
   .phone .bezel{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-  .slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:22% 11% 18%;opacity:0;transform:translateX(18px);
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    text-align:center;padding:20% 12% 36%;opacity:0;transform:translateX(18px);
     transition:opacity .35s ease, transform .35s ease;pointer-events:none}
   .slide.is-on{opacity:1;transform:none;pointer-events:auto}
   .slide svg{width:clamp(26px, 4.2vh, 42px);height:clamp(26px, 4.2vh, 42px);stroke:url(#ir);margin-bottom:10px}
@@ -114,7 +108,7 @@
     a.ghost{padding:4px 6px}
   }
 
-  footer{color:var(--muted);font-size:12px;text-align:center;padding:4px 8px 0;flex:0 0 auto;max-width:100%}
+  footer{color:var(--muted);font-size:12px;text-align:left;padding:0;position:absolute;left:28px;bottom:12px;max-width:46vw}
   footer a{color:var(--c-blue);text-decoration:none}
   footer a:hover{text-decoration:underline}
 </style>
@@ -173,6 +167,15 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
         </a>
       </div>
+      <div class="pager">
+        <button class="arrow prev" type="button" aria-label="Funzione precedente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="dots" id="dots"></div>
+        <button class="arrow next" type="button" aria-label="Funzione successiva">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
     </div>
 
     <section class="stage" aria-roledescription="carousel" aria-label="Funzioni di Ovrli">
@@ -210,15 +213,6 @@
           </article>
         </div>
         <img class="bezel" src="/assets/iphone-bezel.png" alt="" width="1470" height="3000">
-      </div>
-      <div class="pager">
-        <button class="arrow prev" type="button" aria-label="Funzione precedente">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-        </button>
-        <div class="dots" id="dots"></div>
-        <button class="arrow next" type="button" aria-label="Funzione successiva">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
       </div>
     </section>
   </div>
