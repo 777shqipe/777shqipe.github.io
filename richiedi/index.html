@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richiedi nuove funzioni — Ovrli</title>
+<meta name="description" content="Scrivi a hello@ovrli.me e dimmi cosa vorresti vedere su Ovrli.">
+<meta name="theme-color" content="#0a0b0f">
+<style>
+  :root{
+    --bg:#0a0b0f; --card:#14161c; --fg:#f4f5f7; --muted:#aab0be;
+    --line:rgba(255,255,255,.09);
+    --c-blue:#61bdff; --c-violet:#6b4dff; --c-pink:#ff6fb0;
+    --grad:linear-gradient(135deg,var(--c-blue),var(--c-violet));
+    --grad-iri:linear-gradient(115deg,var(--c-blue) 0%,var(--c-violet) 52%,var(--c-pink) 100%);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;padding:0 16px;position:relative;overflow-x:hidden;
+  }
+  .aurora{position:fixed;inset:-20vh -10vw;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(36vw 36vw at 12% 4%, rgba(97,189,255,.42), transparent 62%),
+      radial-gradient(42vw 42vw at 90% 12%, rgba(107,77,255,.38), transparent 62%),
+      radial-gradient(38vw 38vw at 84% 96%, rgba(255,111,176,.26), transparent 62%);
+    filter:blur(26px);opacity:.7;animation:aurora 26s ease-in-out infinite alternate}
+  .aurora::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 26%,transparent 38%,var(--bg) 100%)}
+  @keyframes aurora{from{transform:scale(1)}to{transform:scale(1.16) translate(2%,-2%)}}
+  @media(prefers-reduced-motion:reduce){.aurora{animation:none}}
+  .wrap{max-width:640px;margin:0 auto;padding:56px 0 80px}
+  a.back{color:var(--c-blue);text-decoration:none;font-weight:600;font-size:14px}
+  a.back:hover{text-decoration:underline}
+  .brand{margin-top:22px;font-weight:800;font-size:15px;letter-spacing:.18em;text-transform:uppercase;
+    background:var(--grad-iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1{font-size:40px;line-height:1.1;letter-spacing:-.03em;margin:.3em 0 .25em;font-weight:800}
+  .lead{color:var(--muted);font-size:18px;max-width:42ch;margin:0 0 28px}
+  form{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+    border:1px solid var(--line);border-radius:22px;padding:22px}
+  label{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+  textarea{
+    width:100%;min-height:160px;resize:vertical;border-radius:14px;border:1px solid var(--line);
+    background:#0c0e14;color:var(--fg);font:16px/1.5 inherit;padding:14px 16px;
+  }
+  textarea:focus{outline:2px solid rgba(97,189,255,.7);outline-offset:1px}
+  .hint{color:var(--muted);font-size:13px;margin:10px 0 16px}
+  button{
+    appearance:none;border:0;cursor:pointer;font-weight:700;font-size:15px;color:#08111f;
+    padding:13px 22px;border-radius:999px;background:var(--grad);
+    box-shadow:0 10px 30px rgba(90,120,255,.38),inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  button:hover{transform:translateY(-1px)}
+  .mail{display:block;margin-top:16px;color:var(--c-blue);font-weight:600;font-size:14px}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:28px 0 8px}
+  footer a{color:var(--c-blue);text-decoration:none}
+</style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <a class="back" href="/">← Ovrli</a>
+    <div class="brand">Ovrli</div>
+    <h1>Richiedi nuove funzioni</h1>
+    <p class="lead">Dimmi cosa vorresti vedere sull’app. La mail arriva a me, su hello@ovrli.me: la leggo e, se ha senso, entra in una prossima versione.</p>
+    <form id="ask">
+      <label for="idea">Cosa ti manca</label>
+      <textarea id="idea" name="idea" required minlength="8" maxlength="2000" placeholder="Una modalità, un ritocco, un gesto sul mirino…"></textarea>
+      <p class="hint">Si apre la tua app di posta, già indirizzata a hello@ovrli.me. Non salvo niente su un server.</p>
+      <button type="submit">Scrivi a hello@ovrli.me</button>
+      <a class="mail" href="mailto:hello@ovrli.me?subject=Richiedi%20nuove%20funzioni%20%E2%80%94%20Ovrli">Oppure scrivi direttamente a hello@ovrli.me</a>
+    </form>
+    <footer>© 2026 Ovrli · <a href="/privacy">Privacy</a></footer>
+  </div>
+  <script>
+    document.getElementById("ask").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var idea = document.getElementById("idea").value.trim();
+      if (idea.length < 8) return;
+      var subject = "Richiedi nuove funzioni — Ovrli";
+      var body = idea + "\n\n—\nInviato da ovrli.me/richiedi";
+      window.location.href = "mailto:hello@ovrli.me?subject="
+        + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
